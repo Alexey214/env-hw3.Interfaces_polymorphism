@@ -1,30 +1,18 @@
 package com.company;
 
 public class ServiceStation {
-    public void check(Car car) {
-        System.out.println("Обслуживаем " + car.getModelName());
-        for (int i = 0; i < car.getWheelsCount(); i++) {
-            car.updateTyre();
+
+    public void check(Transport transport) {
+        System.out.println("Обслуживаем " + transport.getModelName());
+        for (int i = 0; i < transport.getWheelsCount(); i++) {
+            transport.updateTyre();
         }
-        car.checkEngine();
+        if (transport.getWheelsCount() >= 6) {
+            transport.checkEngine();
+            transport.checkTrailer();
+        } else if (transport.getWheelsCount() >= 4)
+            transport.checkEngine();
         System.out.println();
     }
 
-    public void check(Bicycle bicycle) {
-        System.out.println("Обслуживаем " + bicycle.getModelName());
-        for (int i = 0; i < bicycle.getWheelsCount(); i++) {
-            bicycle.updateTyre();
-        }
-        System.out.println();
-    }
-
-    public void check(Truck truck) {
-        System.out.println("Обслуживаем " + truck.getModelName());
-        for (int i = 0; i < truck.getWheelsCount(); i++) {
-            truck.updateTyre();
-        }
-        truck.checkEngine();
-        truck.checkTrailer();
-        System.out.println();
-    }
 }
